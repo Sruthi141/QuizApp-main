@@ -53,13 +53,13 @@ export const Footer = () => {
         <div className="footer-col space-y-6">
           <h3 className="text-2xl font-semibold text-orange-600 tracking-tight">Contact</h3>
           <p className="text-lg text-gray-700 flex items-center">
-            <i className="fa fa-home text-orange-600 mr-3"></i> Kurnool, Andhra Pradesh
+            <i className="fa fa-home text-orange-600 mr-3"></i> IIIT Sri City, Chittoor, Andhra Pradesh
           </p>
           <p className="text-lg text-gray-700 flex items-center">
-            <i className="fa fa-envelope text-orange-600 mr-3"></i> rishika.s22@iiits.in
+            <i className="fa fa-envelope text-orange-600 mr-3"></i> sruthi.k22@iiits.in
           </p>
           <p className="text-lg text-gray-700 flex items-center">
-            <i className="fa fa-phone text-orange-600 mr-3"></i> +91 8897391589
+            <i className="fa fa-phone text-orange-600 mr-3"></i> +91 9347049414
           </p>
         </div>
       </div>
@@ -67,7 +67,7 @@ export const Footer = () => {
       {/* Footer Bottom */}
       <div className="text-center mt-12">
         <p className="text-gray-600 text-lg">
-          MERN Quiz App Designed and Developed By <span className="font-semibold text-orange-600">Rishika</span>.
+          MERN Quiz App Designed and Developed By <span className="font-semibold text-orange-600">Sruthi</span>.
         </p>
       </div>
     </div>

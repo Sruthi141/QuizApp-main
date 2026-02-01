@@ -1,40 +1,44 @@
-const express=require('express');
-const connect=require("./configs/db.js")
+require("dotenv").config(); // ✅ ADD THIS LINE
+
+const express = require("express");
+const connect = require("./configs/db.js");
 const bodyParser = require("body-parser");
-const Port = process.env.PORT || 3755
-var cors = require('cors')
-const app=express();
+const cors = require("cors");
+
+const Port = process.env.PORT || 3755;
+
+const app = express();
+
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
-const loginAuth=require("./controller/auth.controller.js")
-app.use("/",loginAuth)
-const RegisterAuth=require("./controller/auth.controller.js")
-app.use("/",RegisterAuth)
+app.use(bodyParser.urlencoded({ extended: true }));
 
-const quizAdd=require("./controller/quizAdd.controller.js")
-app.use("/admin",quizAdd)
+// ✅ Auth Controller
+const authController = require("./controller/auth.controller.js");
+app.use("/", authController);
+app.use("/user", authController);
 
-const quiz=require("./controller/displayQuiz.controller.js")
-app.use("/quiz",quiz)
+// ✅ Admin Quiz Add Controller
+const quizAddController = require("./controller/quizAdd.controller.js");
+app.use("/admin", quizAddController);
 
-const getquiz = require("./controller/quizAdd.controller.js")
-app.use("/quiz",getquiz)
+// ✅ Display Quiz Controller
+const quizController = require("./controller/displayQuiz.controller.js");
+app.use("/quiz", quizController);
 
-const user=require("./controller/auth.controller.js")
-app.use("/user",user)
+// ✅ User Result Controller
+const userResultController = require("./controller/userData.controller.js");
+app.use("/userResult", userResultController);
 
-const userResult=require("./controller/userData.controller.js")
-app.use("/userResult",userResult)
+// ✅ Start Server
+app.listen(Port, async () => {
+  try {
+    console.log("Mongo URL:", process.env.MONGO_URL); // ✅ Debug check
 
-app.listen(Port,async function(){
-    try {
-        await connect();
-           console.log(`Listening on ${Port}` )
-    } catch (error) {
-         console.log(err)
-    }
-})
-
-
+    await connect();
+    console.log(`✅ Server running on port ${Port}`);
+  } catch (error) {
+    console.log("❌ Database connection error:", error);
+  }
+});

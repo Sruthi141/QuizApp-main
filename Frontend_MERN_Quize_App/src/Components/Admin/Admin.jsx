@@ -25,7 +25,7 @@ export const Admin = () => {
         <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 flex flex-col md:flex-row items-center mb-12">
           <div className="md:w-1/2 text-center md:text-left">
             <h1 className="text-4xl font-semibold text-gray-800 dark:text-white">Hi Admin,</h1>
-            <h2 className="text-3xl font-medium text-blue-600 dark:text-blue-400 mt-2">Rishika </h2>
+            <h2 className="text-3xl font-medium text-blue-600 dark:text-blue-400 mt-2">Sruthi </h2>
           </div>
         </div>
 
